@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokumentinformationen %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{revision}
+\newcommand{\titleinfo}{Prog3 - Zusammenfassung}
+\newcommand{\authorinfo}{R. Nestler}
+\newcommand{\versioninfo}{$Revision: \revision$ - powered by \LaTeX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standard projektübergreifender Header für
+% - Makros 
+% - Farben
+% - Mathematische Operatoren 
+%
+% DORT NUR ERGÄNZEN, NICHTS LÖSCHEN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+\include{header/header}
+
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+\lstset{
+	tabsize=2,
+	language=C++,
+	basicstyle=\footnotesize\sffamily,
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+
+% Möglichst keine Ergänzungen hier, sondern in header.tex
+\begin{document} 
+
+\input{sections/1_Grundlagen.tex}
+\input{sections/2_Iteratoren.tex}
+ 
+\end{document}
