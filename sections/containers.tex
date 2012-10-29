@@ -1,0 +1,37 @@
+\section{Containers}
+\subsection{Übersicht}
+\subsubsection{Sequence}
+\begin{itemize}
+	\item Reihenfolge bleibt erhalten
+	\item find \ref{find} in linearer Zeit
+	\item vector, deque, list, forward\_list
+\end{itemize}
+\subsubsection{Associative}
+\begin{itemize}
+	\item Reihenfolge in sortierter Folge
+	\item find \ref{find} in logarithmischer Zeit
+\end{itemize}
+\subsubsection{Hashed}
+\begin{itemize}
+	\item ohne Reihenfolge
+	\item find \ref{find} in konstanter Zeit
+\end{itemize}
+\subsection{Common API}
+\begin{itemize}
+	\item erease(iter)
+	\item insert(iter,value)
+	\item size(), empty()
+	\item default-constructor
+	\item copy-constructor
+	\item equal-compare wenn elemente gleicher typ
+	\item clear() $\rightarrow$ empty()
+\end{itemize}
+\subsubsection{Constructors}
+\begin{lstlisting}
+	std::vector<int> v{1,2,3,5,7,11};
+	std::list<int> l(5,42);
+	std::deque<int> q{v.begin(,v.end()};
+\end{lstlisting}
+
+\subsection{vector}
+
