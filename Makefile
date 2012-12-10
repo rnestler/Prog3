@@ -19,3 +19,6 @@ $(TARGET): $(TARGET:%.pdf=%.tex) $(SRC)
 clean:
 	$(CLEAN)
 
+run:
+	xdg-open $(TARGET)
+
