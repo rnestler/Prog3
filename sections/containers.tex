@@ -10,11 +10,13 @@
 \begin{itemize}
 	\item Reihenfolge in sortierter Folge
 	\item find \ref{find} in logarithmischer Zeit
+	\item map, multimap, set, multiset
 \end{itemize}
 \subsubsection{Hashed}
 \begin{itemize}
 	\item ohne Reihenfolge
 	\item find \ref{find} in konstanter Zeit
+	\item unordered\_map, unordered\_multimap, unordered\_set, unordered\_multiset
 \end{itemize}
 \subsection{Common API}
 \begin{itemize}
@@ -27,10 +29,19 @@
 	\item clear() $\rightarrow$ empty()
 \end{itemize}
 \subsubsection{Constructors}
+	\begin{tabularx}{\columnwidth}{lX}
+		Code & Bedeutung \\
+		\hline
+		C\{\} & Leerer Container besser als C() \\
+		C\{e1,e2,\ldots,en\} & Mit \emph{initilizer list} initialisieren \\
+		C\{n, e\} & Mit \emph{n} Kopien von \emph{e} initialisieren.  Besser C(n,e) verwenden, da sonst eine mehrdeutigkeit ensteht, wenn \emph{n} ein gültiges Element des Containers ist (z.B. bei $vector<int>$) \\
+		C\{ita, itb\} & Mit Elementen von iterator \emph{ita} bis ohne \emph{itb} initialisieren \\
+	\end{tabularx}
+	Beispiele:
 \begin{lstlisting}
 	std::vector<int> v{1,2,3,5,7,11};
 	std::list<int> l(5,42);
-	std::deque<int> q{v.begin(,v.end()};
+	std::deque<int> q{v.begin(),v.end()};
 \end{lstlisting}
 
 \subsection{vector}
