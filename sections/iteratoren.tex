@@ -1,29 +1,97 @@
 \section{Iteratoren}
-\subsection{std::vector}
+\subsection{Eigene Loops}
 \begin{lstlisting}
-std::vector<X> v(6);
-\end{lstlisting}
-Iterieren:
-\begin{lstlisting}
+	std::vector<int> v(6);
+	
+	// C-Style loop
 	for(size_t i=0; i<v.size(); ++i)
 		std::cout << v[i];
 	
+	// auto-loop without modifying
 	for(auto const i:v)
 		std::cout << i;
 	
+	// auto-loop using reference for 
+	// modifying
 	for(auto &j:v)
 		j*=2;
 
-	for(auto it=v.cbegin(); it != v.cend(); ++it)
+	// loop with const iterators
+	for(auto it=v.cbegin(); it!=v.cend(); ++it)
 		std::cout << *it;
+		
+	// for_each with Lambda and iterators
+	for_each(v.begin,v.end,[](int x){
+		 std::cout << x++ << '\n';
+	 });
 \end{lstlisting}
-Wenn möglich nicht verwenden, immer algorithmen
+Wenn möglich nicht verwenden, immer \nameref{Algorithmen}
+
+
+\subsection{OutputIterator}
+\begin{itemize}
+	\item write
+	\item increment (without multiple passes)
+\end{itemize}
+Werte können nur einmal geschrieben werden.
+\begin{lstlisting}
+	// ostream_iterator do not have an 'end'
+	std::ostream_iterator<int>{std::cout, "\n"};
+\end{lstlisting}
+
+\subsection{InputIterator}
+\begin{itemize}
+	\item read
+	\item increment (without multiple passes) 
+\end{itemize}
+\begin{lstlisting}
+	std::istream_iterator<int>{std::cin}in;
+	std::istream_iterator<int>{}eof;
+\end{lstlisting}
+Werte können nur einmal gelesen werden.
 
 \subsection{Forward Iterator}
+\begin{itemize}
+	\item All of Input Iterator
+	\item increment (with multiple passes)
+\end{itemize}
 
-\subsection{Bidriectional Iterator}
+\subsection{Bidirectional Iterator}
+\begin{itemize}
+	\item All of Forward Iterator
+	\item decrement
+\end{itemize}
 
 \subsection{Random access Iterator}
-Bidirectional but Allows indexing with $[]$
+\begin{itemize}
+	\item All of Bidirectional Iterator
+	\item random access with $[]$
+\end{itemize}
 
+\subsection{Operations}
+\begin{tabular}{ll}
+	advance  & advances an iterator by given distance \\
+	distance & returns the distance between two iterators \\
+	next     & increment an iterator \\
+	prev     & decrement an iterator \\
+\end{tabular}
+
+\subsection{Adaptors}
+\begin{tabularx}{\columnwidth}{lX}
+	reverse\_iterator      &  iterator adaptor for reverse-order traversal  \\
+	move\_iterator         &  iterator adaptor which dereferences to an rvalue reference  \\
+	make\_move\_iterator   &  creates a move\_iterator of type inferred from the argument  \\
+	back\_insert\_iterator &  iterator adaptor for insertion at the end of a container  \\
+	back\_inserter         &  creates a back\_insert\_iterator of type inferred from the argument  \\
+	front\_insert\_iterator&  iterator adaptor for insertion at the front of a container  \\
+	front\_inserter        &  creates a front\_insert\_iterator of type inferred from the argument  \\
+	insert\_iterator       &  iterator adaptor for insertion into a container  \\
+	inserter               &  creates a insert\_iterator of type inferred from the argument  \\
+\end{tabularx}
+
+\subsubsection{Example}
+
+
+\subsection{Eigene Iteratoren}
+\subsubsection{Mit Boost}
 
