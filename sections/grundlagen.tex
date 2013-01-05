@@ -1,1 +1,27 @@
 \section{Grundlagen}
+
+\subsection{Variablen}
+\begin{lstlisting}
+int a{42};
+int zero{};
+\end{lstlisting}
+When initializing with ''=`` we can use ''auto`` for the type
+\begin{lstlisting}
+auto i=5;
+\end{lstlisting}
+
+For long types we use ''alias``
+\begin{lstlisting}
+using input=std::istream_iterator<std::string>;
+input in{std::cin}
+input eof{};
+\end{lstlisting}
+
+\subsection{Built in Types}
+\begin{itemize}
+\item bool
+\item char, unsigned char, wchar\_t, char16\_t, char32\_t
+\item short, int, long, long long
+\item unsigned short, unsigned int, unsigned long, unsigned long long
+\item float, double, long double
+\end{itemize}
