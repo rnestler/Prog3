@@ -1,20 +1,22 @@
 \section{Algorithmen}
+\label{Algorithmen}
+\subsection{Overview}
 \begin{itemize}
 	\item algorithm
 		\begin{itemize}
 			\item Non-modifying
 				\begin{itemize}
-					\item 
-					\item
-					\item
-					\item
-				\end{itemize}
-			\item 
-				\begin{itemize}
 					\item distance
 					\item copy / copy\_if
 					\item count / count\_if
 					\item \label{find} find / find\_if
+				\end{itemize}
+			\item Modifying
+				\begin{itemize}
+					\item 
+					\item
+					\item
+					\item
 				\end{itemize}
 		\end{itemize}
 	\item numeric
@@ -25,4 +27,19 @@
 			\item adjacent\_difference
 			\item partial\_sum
 		\end{itemize}
+\end{itemize}
+
+\subsection{Predicates}
+\nameref{Function} or \nameref{Lambda} which compute a bool.
+\begin{itemize}
+\item Unary predicate: 
+Takes one argument
+\begin{lstlisting}
+auto odd=[](int i){ return i%2;};
+\end{lstlisting}
+\item Binary predicate:
+Takes two arguments, relation between the two e.g. less then $<$
+\begin{lstlisting}
+auto divides=[](int i,int j){ return i%j==0;};
+\end{lstlisting}
 \end{itemize}

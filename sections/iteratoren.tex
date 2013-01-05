@@ -69,12 +69,12 @@ Werte können nur einmal gelesen werden.
 \end{itemize}
 
 \subsection{Operations}
-\begin{tabular}{ll}
+\begin{tabularx}{\columnwidth}{lX}
 	advance  & advances an iterator by given distance \\
 	distance & returns the distance between two iterators \\
 	next     & increment an iterator \\
 	prev     & decrement an iterator \\
-\end{tabular}
+\end{tabularx}
 
 \subsection{Adaptors}
 \begin{tabularx}{\columnwidth}{lX}
@@ -86,12 +86,18 @@ Werte können nur einmal gelesen werden.
 	front\_insert\_iterator&  iterator adaptor for insertion at the front of a container  \\
 	front\_inserter        &  creates a front\_insert\_iterator of type inferred from the argument  \\
 	insert\_iterator       &  iterator adaptor for insertion into a container  \\
-	inserter               &  creates a insert\_iterator of type inferred from the argument  \\
+	inserter               &  creates a insert\_iterator of type inferred from the argument  
 \end{tabularx}
 
 \subsubsection{Example}
+\begin{lstlisting}
+using input=std::istream_iterator<int>;
+input eof{};
+std::vector<int> v{};
+copy(input{std::cin}, eof, back_inserter(v));
+\end{lstlisting}
 
-
-\subsection{Eigene Iteratoren}
+\subsection{Eigene Iteratoren Klassen}
 \subsubsection{Mit Boost}
-
+\includecode{snippets/getline_iterator.h}
+\includecode{snippets/getline_iterator.cpp}

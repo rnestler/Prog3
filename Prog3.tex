@@ -1,14 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % Dokumentinformationen %
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[ngerman]{scrartcl}
+\documentclass[ngerman,english]{scrartcl}
 
 \usepackage[iso,nocleanlook]{isodate}
 \include{revision}
 \title{Prog3 - Zusammenfassung}
-\author{R. Nestler}
+\author{Raphael Nestler}
 \date{\revisiondate ~ \revision ~ powered by \LaTeX}
-\newcommand{\versioninfo}{$Revision: \revision$ - powered by \LaTeX}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Standard projektübergreifender Header für
@@ -23,9 +22,18 @@
 
 \usepackage{listings}
 
+\newcommand{\includecode}{\begingroup
+  \catcode`_=12 \docodelst}
+\newcommand{\docodelst}[1]{
+  \lstinputlisting[caption=\texttt{#1}]{#1}
+  \endgroup
+}
+
 \lstset{
 	tabsize=2,
 	language=C++,
+	breaklines=true,
+	postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}},
 	basicstyle=\footnotesize\ttfamily,
 	keywordstyle=\bfseries\color{green!40!black},
 	commentstyle=\itshape\color{purple!40!black},

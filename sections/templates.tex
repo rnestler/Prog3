@@ -1,7 +1,86 @@
 \section{Templates}
+\subsection{Functions}
+
+\begin{itemize}
+\item Function templates define a family of functions
+with different template arguments
+\item When you specify template arguments in angle
+brackets, the template is ''instantiated`` for the
+given arguments
+\item Only needed, when template parameter is not
+used as a function parameter type, or when
+ambiguities exist.
+\item Template functions can be overloaded as
+template functions or regular functions
+\end{itemize}
+
 \begin{lstlisting}
 template <typename T>
-auto square(T value) -> decltype(value*value) {
+auto square(T value)->decltype(value*value){
 	return value*value;
 }
 \end{lstlisting}
+\begin{lstlisting}
+namespace MyMin{
+	template <typename T>
+	T const& min(T const& a, T const& b){
+		 return (a < b)? a : b ;
+	}
+}
+\end{lstlisting}
+
+\begin{itemize}
+\item Compiler can automatically deduce the type of the template
+\begin{lstlisting}
+int i = 88;
+min(i,42);
+double pi = 3.1415;
+double e = 2.7182;
+min(e,pi);
+\end{lstlisting}
+
+\item If ambiguous, you need to specify the type
+\begin{lstlisting}
+//min(2,pi); // compile error
+min(static_cast<double>(2),pi);
+min<double>(2,pi);
+
+\end{lstlisting}
+\end{itemize}
+
+
+\subsection{Variadic Templates}
+\begin{lstlisting}
+template <typename...ARGS>
+void variadic(ARGS...args){
+	 println(std::cout,args...);
+}
+
+template<typename Head, typename... Tail>
+void println(std::ostream &out, Head const& head, Tail const& ...tail) {
+	 out << head;
+	 if (sizeof...(tail)) {
+	 	 out << ", ";
+	 }
+	 println(out,tail...); //recurse on tail
+}
+\end{lstlisting}
+
+\subsection{Prohibiting Overloads}
+\begin{lstlisting}
+template <typename T>
+T const& min(T const& a, T const& b){
+	 return (a < b)? a : b ;
+}
+template <typename T>
+T * min(T * a, T * b)=delete; // disable for pointers
+char const* min(char const* a, char const* b); // but enable for char const pointers
+\end{lstlisting}
+
+
+\subsection{Classes}
+\begin{itemize}
+\item Must always specify template arguments
+\end{itemize}
+
+\includecode{snippets/dynArray.h}

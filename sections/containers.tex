@@ -3,20 +3,21 @@
 \subsubsection{Sequence}
 \begin{itemize}
 	\item Reihenfolge bleibt erhalten
-	\item find \ref{find} in linearer Zeit
+	\item find \chapref{find} in linearer Zeit
 	\item vector, deque, list, forward\_list
 \end{itemize}
 \subsubsection{Associative}
 \begin{itemize}
 	\item Reihenfolge in sortierter Folge
-	\item find \ref{find} in logarithmischer Zeit
+	\item find \chapref{find} in logarithmischer Zeit
 	\item map, multimap, set, multiset
 \end{itemize}
 \subsubsection{Hashed}
 \begin{itemize}
 	\item ohne Reihenfolge
-	\item find \ref{find} in konstanter Zeit
-	\item unordered\_map, unordered\_multimap, unordered\_set, unordered\_multiset
+	\item find \chapref{find} in konstanter Zeit
+	\item unordered\_map, unordered\_multimap, \newline
+		unordered\_set, unordered\_multiset
 \end{itemize}
 \subsection{Common API}
 \begin{itemize}
@@ -25,7 +26,7 @@
 	\item size(), empty()
 	\item default-constructor
 	\item copy-constructor
-	\item equal-compare wenn elemente gleicher typ
+	\item equal-compare wenn Elemente gleicher Typ
 	\item clear() $\rightarrow$ empty()
 \end{itemize}
 \subsubsection{Constructors}
@@ -45,4 +46,12 @@
 \end{lstlisting}
 
 \subsection{vector}
+% Ausnahme mit bool vector
+
+\subsection{deque}
+
+\subsection{array}
+% ähnlich wie C-Array
+
+\subsection{list}
 

@@ -1,4 +1,5 @@
 \section{Functions}
+\label{Function}
 
 \subsection{Normale Syntax}
 \subsubsection{pass by value}
@@ -15,8 +16,73 @@ RetType f(Type &par);
 \end{lstlisting}
 
 \subsection{Lambdas}
+\label{Lambda}
 \begin{lstlisting}
 auto f = [](Type par)->RetType{};
 \end{lstlisting}
 
+\subsection{Functors}
+
+\subsubsection{Standard Functors}
+\begin{lstlisting}
+#include <functional>
+\end{lstlisting}
+\begin{itemize}
+\item arithmetic / logical
+	\begin{itemize}
+	\item plus (+)
+	\item minus (-)
+	\item divides (/)
+	\item multiplies (*)
+	\item modulus (\%)
+	\item logical\_and (\&\&)
+	\item logical\_or ($||$)
+	\end{itemize}
+	
+	\item unary
+	\begin{itemize}
+	\item negate (-)
+	\item logical\_not (!)
+	\end{itemize}
+	
+	\item binary comparision
+	\begin{itemize}
+	\item less (<)
+	\item less\_equal (<=)
+	\item equal\_to (==)
+	\item greater\_equal (>=)
+	\item greater (>)
+	\item not\_equal\_to (!=)
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Own functors}
+\begin{lstlisting}
+#include <set>
+#include <functional>
+#include <algorithm>
+#include <cctype>
+#include <iterator>
+#include <iostream>
+struct caseless{
+	 using string=std::string;
+	 bool operator()(string const &l, string const &r){
+	 	 return std::lexicographical_compare(
+	 	 	 	 l.begin(),l.end(),r.begin(),r.end(),
+	 	 	 	 [](char l,char r){
+	 	 	 return std::tolower(l) < std::tolower(r);
+	 	 });
+	 }
+};
+int main(){
+	 using std::string;
+	 using caseless_set=std::multiset<string,caseless>;
+	 using in=std::istream_iterator<string>;
+	 caseless_set wlist{in{std::cin},in{}};
+	 std::ostream_iterator<string> out{std::cout,"\n"};
+	 copy(wlist.begin(),wlist.end(),out);
+}
+\end{lstlisting}
+
+\subsection{Functional Programming}
 
