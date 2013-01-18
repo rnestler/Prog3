@@ -1,32 +1,120 @@
-\section{Algorithmen}
+\section{Algorithms}
 \label{Algorithmen}
 \subsection{Overview}
+\begin{lstlisting}
+#include <algorithm>
+\end{lstlisting}
 \begin{itemize}
-	\item algorithm
+	\item Non-modifying
 		\begin{itemize}
-			\item Non-modifying
-				\begin{itemize}
-					\item distance
-					\item copy / copy\_if
-					\item count / count\_if
-					\item \label{find} find / find\_if
-				\end{itemize}
-			\item Modifying
-				\begin{itemize}
-					\item 
-					\item
-					\item
-					\item
-				\end{itemize}
+			\item all\_of / any\_of / none\_of
+			\item for\_each
+			\item count / count\_if
+			\item mismatch
+			\item equal
+			\item \label{find} find / find\_if / find\_if\_not
+			\item find\_end
+			\item find\_first\_of
+			\item adjacent\_find
+			\item search
+			\item search\_n
+
+					%\item distance
 		\end{itemize}
-	\item numeric
+	\item Modifying
 		\begin{itemize}
-			\item iota
-			\item accumulate
-			\item inner\_product
-			\item adjacent\_difference
-			\item partial\_sum
+			\item copy / copy\_if
+			\item copy\_n
+			\item copy\_backward
+			\item move
+			\item move\_backward
+			\item fill
+			\item fill\_n
+			\item transform
+			\item generate
+			\item generate\_n
+			\item remove / remove\_if
+			\item remove\_copy / remove\_copy\_if
+			\item replace / replace\_if
+			\item replace\_copy / replace\_copy\_if
+			\item swap
+			\item swap\_ranges
+			\item iter\_swap
+			\item reverse
+			\item reverse\_copy
+			\item rotate
+			\item rotate\_copy
+			\item random\_shuffle / shuffle
+			\item unique
+			\item unique\_copy
 		\end{itemize}
+	\item Partitioning operations
+		\begin{itemize}
+			\item is\_partitioned
+			\item partition
+			\item partition\_copy
+			\item stable\_partition
+			\item partition\_point
+		\end{itemize}
+	\item Sorting operations
+		\begin{itemize}
+			\item is\_sorted
+			\item is\_sorted\_until
+			\item sort
+			\item partial\_sort
+			\item partial\_sort\_copy
+			\item stable\_sort
+			\item nth\_element
+		\end{itemize}
+	\item Binary search operations
+		\begin{itemize}
+			\item lower\_bound
+			\item upper\_bound
+			\item binary\_search
+			\item equal\_range
+		\end{itemize}
+	\item Set operations
+		\begin{itemize}
+			\item merge
+			\item inplace\_merge
+			\item includes
+			\item set\_difference
+			\item set\_intersection
+			\item set\_symmetric\_difference
+			\item set\_union
+		\end{itemize}
+	\item Heap operations
+		\begin{itemize}
+			\item is\_heap
+			\item is\_heap\_until
+			\item make\_heap
+			\item push\_heap
+			\item pop\_heap
+			\item sort\_heap
+		\end{itemize}
+	\item Minimum/Maximum operations
+		\begin{itemize}
+			\item max
+			\item max\_element
+			\item min
+			\item min\_element
+			\item minmax
+			\item minmax\_element
+			\item lexicographical\_compare
+			\item is\_permutation
+			\item next\_permutation
+			\item prev\_permutation
+		\end{itemize}
+\end{itemize}
+\begin{lstlisting}
+#include <numeric>
+\end{lstlisting}
+\begin{itemize}
+	\item iota
+	\item accumulate
+	\item inner\_product
+	\item adjacent\_difference
+	\item partial\_sum
 \end{itemize}
 
 \subsection{Predicates}
