@@ -1,1 +1,61 @@
 \section{Heap Memory}
+\subsection{unique\_ptr}
+\begin{lstlisting}
+std::unique_ptr<X> factory(int i){
+	 return std::unique_ptr<X>{new X{i}};
+}
+\end{lstlisting}
+\begin{itemize}
+	\item for unshared heap memory
+	\item returned from a factory function
+	\item can wrap to-be-freed pointers from C functions
+\end{itemize}
+
+\subsection{shared\_ptr}
+\begin{lstlisting}
+std::shared_ptr<A> A_factory(){
+	return std::make_shared<A>(5,"hi",'a');
+}
+std::shared_ptr<std::ostream> os_factory(bool str){
+	if (str)
+		return std::make_shared<std::ostringstream>();
+	else
+		return std::make_shared<std::ofstream>("hello.txt");
+}
+\end{lstlisting}
+\begin{itemize}
+\item last $shared\_ptr$ handle destroyed will delete
+allocated object
+\item if instances of a class hierarchy are always
+represented by a $shared\_ptr<base>$ but created
+through $make\_shared<concrete>()$ the
+destructor no longer needs to be virtual
+\item $shared\_ptr$ memorizes concrete destructor for
+deletion on construction time
+\item $shared\_ptr$ can lead to object cycles no longer
+cleared, because of circular dependency
+\item need $weak\_ptr$ to break such cycles
+\end{itemize}
+
+\subsection{weak\_ptr}
+\begin{itemize}
+	\item avoid circular object dependencies with shared\_ptr
+	\item keep "living" objects in aseparate data structure as shared\_ptr and relationships / dpendencies with weak\_ptr
+\end{itemize}
+
+\subsection{PIMPL}
+\begin{lstlisting}
+#include <memory>
+#include <string>
+class Wizard {
+	 std::unique_ptr<class WizardImpl> pImpl;
+public:
+	 Wizard(std::string name);
+	 ~Wizard(); // must declare dtor
+	 std::string doMagic(std::string wish);
+};
+\end{lstlisting}
+\begin{itemize}
+	\item exported header file with class consisting of a ''Pointer to IMPLementation``
+	\item Shield client code from implementation changes
+\end{itemize}
