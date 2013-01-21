@@ -22,7 +22,20 @@
 \subsubsection{Adaptors}
 \begin{itemize}
 	\item Provide a different interface for sequential containers. 
-	\item stack, queue, priority\_queue
+	\item stack
+	\begin{itemize}
+	\item limits to push / pop and top
+	\item wraps deque, vector or list
+	\end{itemize}
+	\item queue
+	\begin{itemize}
+	\item push / pop / front
+	\end{itemize}
+	\item priority\_queue
+	\begin{itemize}
+	\item push / pop / top
+	\item top() element is always smallest
+	\end{itemize}
 \end{itemize}
 \subsection{Common API}
 \begin{itemize}
@@ -61,15 +74,54 @@
 
 \subsection{deque}
 \begin{itemize}
-\item push\_front
+\item push\_front / pop\_front
 \end{itemize}
 
 \subsection{array}
 \begin{itemize}
-\item similar to C-array, but keeps size
+\item similar to C-array (fixed size), but keeps size
+\item initialization needs \{\{\}\}
 \end{itemize}
 
 \subsection{list}
 \begin{itemize}
-\item fast insert
+\item double linked list
+\item fast insert in any position
 \end{itemize}
+
+\subsection{set}
+\begin{itemize}
+\item own member functions for find and count which are more efficient
+\end{itemize}
+\begin{lstlisting}
+#include <set>
+#include <iostream>
+void filtervowels(std::istream &in, std::ostream &out){
+	 std::set<char> const vowels{'a','e','o','u','i','y'};
+	 char c{};
+	 while (in>>c)
+	 	 if (! vowels.count(c))
+	 	 	 out << c;
+}
+int main(){
+	 filtervowels(std::cin,std::cout);
+}
+\end{lstlisting}
+
+\subsection{map}
+\begin{lstlisting}
+#include <map>
+#include <iostream>
+#include <iterator>
+int main(){
+	 std::map<char,size_t> vowels
+	
+{{'a',0},{'e',0},{'i',0},{'o',0},{'u',0},{'y',0}};
+	 char c;
+	 while (std::cin >> c)
+	 	 if (vowels.count(c))
+	 	 	 ++vowels[c];
+	 for(auto const &p:vowels)
+	 	 std::cout << p.first << " = "<< p.second << '\n';
+}
+\end{lstlisting}

@@ -42,7 +42,11 @@ Werte können nur einmal geschrieben werden.
 \subsection{InputIterator}
 \begin{itemize}
 	\item read
-	\item increment (without multiple passes) 
+	\item increment (without multiple passes)
+	\item T const operator $*$
+	\item operator++()
+	\item operator++(int)
+	\item operator==(myiter)
 \end{itemize}
 \begin{lstlisting}
 	std::istream_iterator<int>{std::cin}in;
@@ -54,12 +58,16 @@ Werte können nur einmal gelesen werden.
 \begin{itemize}
 	\item All of Input Iterator
 	\item increment (with multiple passes)
+	\item read and change current element
+	\item std::forward\_list
 \end{itemize}
 
 \subsection{Bidirectional Iterator}
 \begin{itemize}
 	\item All of Forward Iterator
 	\item decrement
+	\item operator$--()$
+	\item operator$--(int)$
 \end{itemize}
 
 \subsection{Random access Iterator}
