@@ -1,5 +1,5 @@
-\section{Iteratoren}
-\subsection{Eigene Loops}
+\section{Iterators}
+\subsection{Self made Loops}
 \begin{lstlisting}
 	std::vector<int> v(6);
 	
@@ -66,9 +66,23 @@ Werte können nur einmal gelesen werden.
 \begin{itemize}
 	\item All of Bidirectional Iterator
 	\item random access with $[]$
+	\item Must implement
+	\begin{itemize}
+		\item $*$
+		\item $++$
+		\item $--$
+		\item $[]$
+		\item $==$
+		\item $+=$ int
+		\item $-=$ int
+		\item $<$ $>$ $<=$ $>=$
+	\end{itemize}
 \end{itemize}
 
 \subsection{Operations}
+\begin{lstlisting}
+#include <iterator>
+\end{lstlisting}
 \begin{tabularx}{\columnwidth}{lX}
 	advance  & advances an iterator by given distance \\
 	distance & returns the distance between two iterators \\
