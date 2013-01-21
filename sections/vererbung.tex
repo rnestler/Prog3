@@ -5,12 +5,37 @@
 		Derived():Base{}{}
 	};
 \end{lstlisting}
+\subsection{Multiple Inheritance}
+\begin{lstlisting}
+	class Base {};
+	struct MixIn{};
+	class MultipleBase : public Base, private MixIn {
+		MultipleBase():Base{},MixIn{}
+		{}
+	};
+\end{lstlisting}
+
 
 \subsection{Visibility}
 % eher tabelle?
 \begin{itemize}
-	\item public
-	\item protected
-	\item private
+	\item public:
+		members of base are visible and usable from derived class
+	\item protected:
+		members of base are usable from derived class
+	\item private:
+		members of base can not be accessed
 \end{itemize}
 
+\subsection{Converting operators}
+\begin{lstlisting}
+explicit
+operator Typ() const {
+	return ...
+}
+\end{lstlisting}
+
+\subsection{Constructors}
+
+\subsubsection{explicit}
+verhindert implizite, automatische casts, bei Konstruktoren mit einem Parameter und Konvertierungsoperatoren.
